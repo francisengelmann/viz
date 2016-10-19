@@ -1,4 +1,4 @@
-![alt tag](data/screen.png)
+![alt tag](data/viz_logo.png)
 
 # What is VIZ?
 VIZ is a lightweight 3D visualizatino framework based on VTK.
