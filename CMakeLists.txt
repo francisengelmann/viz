@@ -46,6 +46,7 @@ file(GLOB SOURCES "${CMAKE_SOURCE_DIR}/src/viz/viz.cpp")
 # Create Library VIZ
 add_library(VIZ SHARED ${SOURCES})
 target_link_libraries(VIZ ${VTK_LIBRARIES} ${OpenCV_LIBS})
+install_targets("${CMAKE_SOURCE_DIR}/lib/" VIZ)
 
 add_subdirectory(src)
 include_directories(include)
