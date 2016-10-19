@@ -24,3 +24,5 @@ include_directories("${CMAKE_SOURCE_DIR}/include")
 
 add_executable(example "example.cpp" )
 target_link_libraries(example VIZ)
+install(TARGETS example DESTINATION "${CMAKE_SOURCE_DIR}/bin")
+
