@@ -41,7 +41,8 @@ include_directories(${EIGEN3_INCLUDE_DIR})
 # OpenCV maybe required, TODO add this as an option, see "Build examples"
 find_package(OpenCV REQUIRED)
 
-file(GLOB SOURCES "${CMAKE_SOURCE_DIR}/src/viz/viz.cpp")
+file(GLOB SOURCES "${CMAKE_SOURCE_DIR}/src/viz/*.cpp"
+                  "${CMAKE_SOURCE_DIR}/include/viz/*.h")
 
 # Create Library VIZ
 add_library(VIZ SHARED ${SOURCES})
