@@ -98,12 +98,9 @@ configure_file("${CMAKE_SOURCE_DIR}/cmake/VIZConfig.cmake"
 set(ConfigPackageLocation "${CMAKE_SOURCE_DIR}/cmake")
 
 install(EXPORT VIZTargets
-  FILE
-    VIZTargets.cmake
-  NAMESPACE
-    viz::
-  DESTINATION
-    ${ConfigPackageLocation}
+  FILE VIZTargets.cmake
+  NAMESPACE viz::
+  DESTINATION ${ConfigPackageLocation}
 )
 
 install(FILES cmake/VIZConfig.cmake "${CMAKE_CURRENT_BINARY_DIR}/viz/VIZConfigVersion.cmake"
@@ -127,7 +124,7 @@ else (NOT CMAKE_BUILD_TYPE)
 endif (NOT CMAKE_BUILD_TYPE)
 
 # Build the examples
-option(BUILD_EXAMPLES "Build examples" OFF)
+option(BUILD_EXAMPLES "Build examples" ON)
 if (BUILD_EXAMPLES)
   message("-- Build the examples.")
   add_subdirectory(examples)

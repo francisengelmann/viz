@@ -20,14 +20,9 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-message("+++ EXAMPLE CMAKE START +++")
-
 find_package(VIZ REQUIRED)
 include_directories(${VIZ_INCLUDE_DIRS})
 
 add_executable(example "example.cpp")
-#target_link_libraries(example  ${VIZ_LIBRARIES})
-target_link_libraries(example VIZ)
-#message(${VIZ_LIBRARIES})
+target_link_libraries(example  ${VIZ_LIBRARIES})
 #install(TARGETS example DESTINATION "${CMAKE_SOURCE_DIR}/bin")
-message("+++ EXAMPLE CMAKE END +++")
