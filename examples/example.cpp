@@ -20,7 +20,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#include <viz/viz.hpp>
+#include <viz/viz.h>
 
 // Hello World Example
 int main(int argc, char** argv) {

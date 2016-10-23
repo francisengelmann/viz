@@ -16,7 +16,7 @@
 #include <eigen/Dense>
 
 // Own includes
-#include "viz/geometry.hpp"
+#include "geometry.h"
 
 class vtkRenderer;
 class vtkRenderWindow;
