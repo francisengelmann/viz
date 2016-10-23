@@ -20,6 +20,8 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+
+set(VIZ_DIR "../cmake/")
 find_package(VIZ REQUIRED)
 include_directories(${VIZ_INCLUDE_DIRS})
 
