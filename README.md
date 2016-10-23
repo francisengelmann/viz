@@ -1,5 +1,5 @@
 # What is VIZ?
-VIZ is a lightweight 3D visualization framework based on VTK.
+VIZ is a lightweight 3D visualization library based on VTK.
 
 ![alt tag](viz_logo.png)
 
