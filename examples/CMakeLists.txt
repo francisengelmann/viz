@@ -21,7 +21,8 @@
 # SOFTWARE.
 
 
-set(VIZ_DIR "${CMAKE_CURRENT_LIST_DIR}/../cmake/")
+set(VIZ_DIR "${CMAKE_SOURCE_DIR}/cmake/")
+message(${VIZ_DIR})
 find_package(VIZ REQUIRED)
 include_directories(${VIZ_INCLUDE_DIRS})
 
