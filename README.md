@@ -12,8 +12,9 @@ Visualizations are en essantial part of debugging computer vision code.
 Hence, it should be as easy and as convenient as possible.
 
 # Installation
-Usual cmake installation is provided
-
+* `mkdir build; cd build;`
+* Configure the build using [cmake](http://www.cmake.org/cmake/resources/software.html): `cmake ..`
+* `make; sudo make install`
 
 # Standards
 * Coordinate sytem orientation
