@@ -127,7 +127,7 @@ else (NOT CMAKE_BUILD_TYPE)
 endif (NOT CMAKE_BUILD_TYPE)
 
 # Build the examples
-option(BUILD_EXAMPLES "Build examples" ON)
+option(BUILD_EXAMPLES "Build examples" OFF)
 if (BUILD_EXAMPLES)
   message("-- Build the examples.")
   add_subdirectory(examples)
