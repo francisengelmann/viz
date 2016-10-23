@@ -1,0 +1,4 @@
+include("${CMAKE_CURRENT_LIST_DIR}/VIZTargets.cmake")
+set(VIZ_INCLUDE_DIRS "${CMAKE_CURRENT_LIST_DIR}/../include")
+#set(VIZ_LIBRARIES "${CMAKE_CURRENT_LIST_DIR}/../lib/libVIZ.dylib")
+find_library(VIZ_LIBRARIES NAMES VIZ HINTS "${CMAKE_CURRENT_LIST_DIR}/../lib/")
