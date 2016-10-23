@@ -1,9 +1,9 @@
 ![alt tag](data/viz_logo.png)
 
 # What is VIZ?
-VIZ is a lightweight 3D visualizatino framework based on VTK.
+VIZ is a lightweight 3D visualization framework based on VTK.
 
-Inspired by the visualization functinoality of the famouse PCL (Pointcloud Library),
+Inspired by the functionality of the famouse PCL (Pointcloud Library),
 VIZ tries to be a more lightweight visualiation library that comes without a large list of dependencies.
 Its only required dependencies are VTK and Eigen. If desired, it can also output rendered views into OpenCV.
 
