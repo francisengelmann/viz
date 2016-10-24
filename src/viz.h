@@ -92,7 +92,10 @@ public:
   void addPlane(const double a, const double b, const double c, const double d);
   void addPlane(const Eigen::Vector4d& plane);
   void addPLYModel(const std::string& path);
-  // void addBoundingBox(const viz::BoundingBox& bounding_box);
+  void addBoundingBox(const Eigen::Vector3d& size,
+                      const Eigen::Vector3d& translation,
+                      const double rotation_y,
+                      const Eigen::Vector3f& color);
   void addNormals(const cv::Mat& vertices, const cv::Mat& normals);
   void addNormals(const std::vector<Eigen::Vector3d>& vertices,
                   const std::vector<Eigen::Vector3d>& normals);

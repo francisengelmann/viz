@@ -450,48 +450,56 @@ void Visualization::addFrustum(const Eigen::Matrix4d &pose)
   renderer->AddActor(actor);
 }
 
-/*void Visualization::addPointcloud(const std::shared_ptr<Pointcloud> &pointcloud, double point_size)
+//void Visualization::addBoundingBox(const gvl::BoundingBox &bb)
+void Visualization::addBoundingBox(const Eigen::Vector3d& size,
+                                   const Eigen::Vector3d& translation,
+                                   const double rotation_y,
+                                   const Eigen::Vector3f& color)
 {
-  addPointcloud(*pointcloud, point_size);
+
+  vtkSmartPointer<vtkCubeSource> cubeSource =  vtkSmartPointer<vtkCubeSource>::New();
+  vtkSmartPointer<vtkPolyDataMapper> mapper_bb =  vtkSmartPointer<vtkPolyDataMapper>::New();
+  mapper_bb->SetInputConnection(cubeSource->GetOutputPort());
+
+  vtkSmartPointer<vtkActor> actor_bb =  vtkSmartPointer<vtkActor>::New();
+  actor_bb->SetMapper(mapper_bb);
+  actor_bb->GetProperty()->SetRepresentationToWireframe();
+  actor_bb->GetProperty()->SetOpacity(1.0);
+  actor_bb->GetProperty()->SetLineWidth(3);
+  actor_bb->GetProperty()->SetColor(color[0],color[1],color[2]);
+  actor_bb->GetProperty()->SetLighting(false);
+
+  vtkSmartPointer<vtkTransform> transform = vtkSmartPointer<vtkTransform>::New();
+  transform->PostMultiply(); //this is the key line
+  transform->Scale(size[0], size[1], size[2]);
+  transform->RotateY(rotation_y/M_PI*180.0);
+  transform->Translate(translation[0], translation[1]-size[1]/2.0, translation[2]);
+  actor_bb->SetUserTransform(transform);
+
+  renderer->AddActor(actor_bb);
+
+  // Direction Arrow
+  vtkSmartPointer<vtkArrowSource> arrowSource = vtkSmartPointer<vtkArrowSource>::New();
+  arrowSource->SetTipRadius(0.15);
+  arrowSource->SetShaftRadius(0.05);
+  vtkSmartPointer<vtkPolyDataMapper> mapper_arrow =  vtkSmartPointer<vtkPolyDataMapper>::New();
+  mapper_arrow->SetInputConnection(arrowSource->GetOutputPort());
+
+  vtkSmartPointer<vtkActor> actor_arrow =  vtkSmartPointer<vtkActor>::New();
+  actor_arrow->SetMapper(mapper_arrow);
+  actor_arrow->GetProperty()->SetColor(color[0],color[1],color[2]);
+
+  vtkSmartPointer<vtkTransform> transform_arrow = vtkSmartPointer<vtkTransform>::New();
+  transform_arrow->PostMultiply(); //this is the key line
+  transform_arrow->RotateY(90);
+  transform_arrow->Scale(1, 1, size[2]/2.0);
+  transform_arrow->RotateY(rotation_y/M_PI*180.0);
+  transform_arrow->Translate(translation[0], -0.5, translation[2]);
+  actor_arrow->SetUserTransform(transform_arrow);
+  actor_arrow->GetProperty()->SetLighting(false);
+
+  renderer->AddActor(actor_arrow);
 }
-
-void Visualization::addPointcloud(const viz::Pointcloud &pointcloud, double point_size)
-{
-
-  vtkSmartPointer<vtkPoints> vertices = vtkSmartPointer<vtkPoints>::New();
-
-  vtkSmartPointer<vtkUnsignedCharArray> colors = vtkSmartPointer<vtkUnsignedCharArray>::New();
-  colors->SetNumberOfComponents(3);
-  colors->SetName("Colors");
-
-  for (unsigned int i=0; i<pointcloud.points.size(); i++) {
-    viz::Point p = pointcloud.points.at(i);
-    vertices->InsertNextPoint(p.x[0], p.x[1], p.x[2]);
-    unsigned char c[3] = {p.r, p.g, p.b};
-    colors->InsertNextTupleValue(c);
-  }
-
-  vtkSmartPointer<vtkPolyData> polydata = vtkSmartPointer<vtkPolyData>::New();
-  polydata->SetPoints(vertices);
-  polydata->Squeeze();
-
-  vtkSmartPointer<vtkVertexGlyphFilter> glyphFilter = vtkSmartPointer<vtkVertexGlyphFilter>::New();
-  glyphFilter->SetInputData(polydata);
-  glyphFilter->Update();
-
-  vtkSmartPointer<vtkPolyData> polydata_color = vtkSmartPointer<vtkPolyData>::New();
-  polydata_color->ShallowCopy(glyphFilter->GetOutput());
-  polydata_color->GetPointData()->SetScalars(colors);
-
-  vtkSmartPointer<vtkPolyDataMapper> mapper_data = vtkSmartPointer<vtkPolyDataMapper>::New();
-  mapper_data->SetInputData(polydata_color);
-
-  vtkSmartPointer<vtkActor> actor_data = vtkSmartPointer<vtkActor>::New();
-  actor_data->SetMapper(mapper_data);
-  actor_data->GetProperty()->SetPointSize(point_size);
-
-  renderer->AddActor(actor_data);
-}*/
 
 void Visualization::addPointcloud(const std::vector<Eigen::Vector3d>& ver,
                                   const std::vector<Eigen::Vector3f>& col,
