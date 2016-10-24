@@ -450,7 +450,7 @@ void Visualization::addFrustum(const Eigen::Matrix4d &pose)
   renderer->AddActor(actor);
 }
 
-void Visualization::addPointcloud(const std::shared_ptr<Pointcloud> &pointcloud, double point_size)
+/*void Visualization::addPointcloud(const std::shared_ptr<Pointcloud> &pointcloud, double point_size)
 {
   addPointcloud(*pointcloud, point_size);
 }
@@ -491,7 +491,53 @@ void Visualization::addPointcloud(const viz::Pointcloud &pointcloud, double poin
   actor_data->GetProperty()->SetPointSize(point_size);
 
   renderer->AddActor(actor_data);
+}*/
+
+void Visualization::addPointcloud(const std::vector<Eigen::Vector3d>& ver,
+                                  const std::vector<Eigen::Vector3f>& col,
+                                  double point_size)
+{
+
+  vtkSmartPointer<vtkPoints> vertices = vtkSmartPointer<vtkPoints>::New();
+  vtkSmartPointer<vtkUnsignedCharArray> colors = vtkSmartPointer<vtkUnsignedCharArray>::New();
+  colors->SetNumberOfComponents(3);
+  colors->SetName("Colors");
+
+  for (unsigned int i=0; i<ver.size(); i++) {
+    auto& p = ver.at(i);
+    auto& c = col.at(i);
+    vertices->InsertNextPoint(p[0], p[1], p[2]);
+
+    unsigned char r,g,b;
+    r = c[0];
+    g = c[1];
+    b = c[2];
+    unsigned char co[3] = {r, g, b};
+    colors->InsertNextTupleValue(co);
+  }
+
+  vtkSmartPointer<vtkPolyData> polydata = vtkSmartPointer<vtkPolyData>::New();
+  polydata->SetPoints(vertices);
+  polydata->Squeeze();
+
+  vtkSmartPointer<vtkVertexGlyphFilter> glyphFilter = vtkSmartPointer<vtkVertexGlyphFilter>::New();
+  glyphFilter->SetInputData(polydata);
+  glyphFilter->Update();
+
+  vtkSmartPointer<vtkPolyData> polydata_color = vtkSmartPointer<vtkPolyData>::New();
+  polydata_color->ShallowCopy(glyphFilter->GetOutput());
+  polydata_color->GetPointData()->SetScalars(colors);
+
+  vtkSmartPointer<vtkPolyDataMapper> mapper_data = vtkSmartPointer<vtkPolyDataMapper>::New();
+  mapper_data->SetInputData(polydata_color);
+
+  vtkSmartPointer<vtkActor> actor_data = vtkSmartPointer<vtkActor>::New();
+  actor_data->SetMapper(mapper_data);
+  actor_data->GetProperty()->SetPointSize(point_size);
+
+  renderer->AddActor(actor_data);
 }
+
 
 void Visualization::addPlane(const double a, const double b, const double c, const double d)
 {
