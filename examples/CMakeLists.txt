@@ -21,14 +21,14 @@
 # SOFTWARE.
 
 
-set(VIZ_DIR "${CMAKE_SOURCE_DIR}/cmake/")
-message("++++++++++")
-message(${VIZ_DIR})
-find_package(VIZ REQUIRED)
-include_directories(${VIZ_INCLUDE_DIRS})
-message(">>> ++++++++++")
-message(${VIZ_LIBRARIES})
+#set(VIZ_DIR "${CMAKE_SOURCE_DIR}/cmake/")
+#message("++++++++++")
+#message(${VIZ_DIR})
+#find_package(VIZ REQUIRED)
+#include_directories(${VIZ_INCLUDE_DIRS})
+#message(">>> ++++++++++")
+#message(${VIZ_LIBRARIES})
 
 add_executable(example "example.cpp")
-target_link_libraries(example  ${VIZ_LIBRARIES})
+target_link_libraries(example  VIZ)
 #install(TARGETS example DESTINATION "${CMAKE_SOURCE_DIR}/bin")

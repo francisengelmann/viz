@@ -20,7 +20,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#include <viz/viz.h>
+#include "../src/viz.h"
 
 // Hello World Example
 int main(int argc, char** argv) {
@@ -28,6 +28,14 @@ int main(int argc, char** argv) {
   v.lookFromAt(Eigen::Vector3d(-5,-3,-12), Eigen::Vector3d(5,0,0));
   v.addText("VIZ - lightweight wrapper for VTK", Eigen::Vector3d(0,-0.3,0));
   v.addAxes();
+
+  // Bounding Box Example
+  Eigen::Vector3d size(1,2,3);
+  Eigen::Vector3d translation(0,0,1);
+  Eigen::Vector3f color(255,0,0);
+  double rot = 0;
+  v.addBoundingBox(size,translation,rot,color);
+
   v.show();
   return 0;
 }
