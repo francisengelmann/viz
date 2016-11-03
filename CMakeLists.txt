@@ -32,8 +32,6 @@ add_compile_options(-std=c++0x -fPIC -msse3 -Wall -fopenmp -Wno-unused-variable)
 
 # Set CMAKE_MODULE_PATH
 set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake_modules/" ${CMAKE_MODULE_PATH})
-message("+++++++++++++++++++")
-message("${PROJECT_SOURCE_DIR}/cmake_modules/")
 
 # VTK required
 find_package(VTK 7 REQUIRED)
