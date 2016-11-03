@@ -31,16 +31,18 @@ set(CMAKE_INCLUDE_CURRENT_DIR_IN_INTERFACE ON)
 add_compile_options(-std=c++0x -fPIC -msse3 -Wall -fopenmp -Wno-unused-variable)
 
 # Set CMAKE_MODULE_PATH
-#set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake_modules/" ${CMAKE_MODULE_PATH})
+set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake_modules/" ${CMAKE_MODULE_PATH})
+message("+++++++++++++++++++")
+message("${PROJECT_SOURCE_DIR}/cmake_modules/")
 
 # VTK required
-find_package(VTK REQUIRED)
+find_package(VTK 7 REQUIRED)
 include(${VTK_USE_FILE})
 include_directories(${VTK_INCLUDE_DIRS})
 
 # Eigen required
-find_package(Eigen3 REQUIRED)
-include_directories(${EIGEN3_INCLUDE_DIR})
+find_package(Eigen REQUIRED)
+include_directories(${EIGEN_INCLUDE_DIR})
 find_package(OpenCV REQUIRED)
 
 # Create Library VIZ
