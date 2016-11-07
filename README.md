@@ -17,6 +17,12 @@ Go to root dir of the repository, then type:
 * Configure the build using [cmake](http://www.cmake.org/cmake/resources/software.html): `cmake ..`
 * `make; sudo make install`
 
-# Standards
-* Coordinate sytem orientation
-* Color scaling and type: always in 0..255 
+## Citation
+
+If you find VIZ useful for a publication, please cite it as:
+
+@misc{viz3d,
+  author = "Francis Engelmann",
+  title = "VIZ",
+  howpublished = "\url{https://github.com/francisengelmann/viz}",
+}
