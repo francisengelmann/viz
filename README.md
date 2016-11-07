@@ -21,8 +21,8 @@ Go to root dir of the repository, then type:
 
 If you find VIZ useful for a publication, please cite it as:
 
-'''@misc{viz3d,
+```@misc{viz3d,
   author = "Francis Engelmann",
   title = "VIZ",
   howpublished = "\url{https://github.com/francisengelmann/viz}",
-}'''
+}```
