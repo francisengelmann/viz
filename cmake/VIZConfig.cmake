@@ -5,7 +5,3 @@ find_library(VIZ_LIBRARY NAMES VIZ HINTS "${CMAKE_SOURCE_DIR}/lib/")
 
 set(VIZ_LIBRARIES ${VIZ_LIBRARY} )
 set(VIZ_INCLUDE_DIRS ${VIZ_INCLUDE_DIR} )
-
-
-# pointcloud
-# boudningbox
