@@ -13,9 +13,9 @@ Go to root dir of the repository, then type:
 * `make; sudo make install`
 
 ### Usage with CMake
-`find_package(VIZ REQUIRED)`
-`include_directories(${VIZ_INCLUDE_DIRS})`
-`target_link_libraries( Example ${VIZ_LIBRARIES} )`
+- `find_package(VIZ REQUIRED)`
+- `include_directories(${VIZ_INCLUDE_DIRS})`
+- `target_link_libraries( Example ${VIZ_LIBRARIES} )`
 
 ### Citation
 If you find VIZ useful, you can cite it:
