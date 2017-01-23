@@ -6,7 +6,7 @@ VIZ tries to be a more lightweight visualiation library that comes without a lar
 Its only required dependencies are VTK and Eigen. If desired, it can also output rendered views into OpenCV.
 
 ## Dependencies
-VIZ only depends on VTK (7.0).
+VIZ only depends on VTK (> 7.0).
 
 ## Installation
 Go to root dir of the repository, then type:
