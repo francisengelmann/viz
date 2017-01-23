@@ -182,7 +182,7 @@ Visualization::Visualization(int width, int height, int renderers_count, bool ve
   vtkSmartPointer<vtkInteractorStyleTrackballCamera> style = vtkSmartPointer<vtkInteractorStyleTrackballCamera>::New(); //like paraview
   renderWindowInteractor->SetInteractorStyle( style );
 
-  for (int i=0; i<renderers.size(); i++) {
+  for (unsigned int i=0; i<renderers.size(); i++) {
     vtkSmartPointer<vtkCamera> camera = renderers.at(i)->GetActiveCamera();
     camera->SetViewUp(0.0,-1.0, 0.0);
     camera->SetPosition(0.0, 0.0, 0.0);
