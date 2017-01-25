@@ -1,3 +1,6 @@
+#ifndef VIZ_GEOMETRY
+#define VIZ_GEOMETRY
+
 #include <Eigen/Dense>
 #include <vector>
 
@@ -18,3 +21,5 @@ struct BoundingBox{
   double rotation;
 };
 }
+
+#endif
