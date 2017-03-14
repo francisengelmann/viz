@@ -20,7 +20,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 2.8)
 project(viz C CXX)
 set(VIZ_VERSION 0.0.1)
 
@@ -85,10 +85,10 @@ write_basic_package_version_file(
   COMPATIBILITY AnyNewerVersion
 )
 
-export(EXPORT VIZTargets
-  FILE "${CMAKE_CURRENT_BINARY_DIR}/viz/VIZTargets.cmake"
-  NAMESPACE viz::
-)
+#export(EXPORT VIZTargets
+#  FILE "${CMAKE_CURRENT_BINARY_DIR}/viz/VIZTargets.cmake"
+#  NAMESPACE viz::
+#)
 
 configure_file("${CMAKE_SOURCE_DIR}/cmake/VIZConfig.cmake"
   "${CMAKE_CURRENT_BINARY_DIR}/viz/VIZConfig.cmake"
