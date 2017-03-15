@@ -22,11 +22,11 @@ find_package(VTK 7 REQUIRED)
 include(${VTK_USE_FILE})
 include_directories(${VTK_INCLUDE_DIRS})
 
-find_package(VIZ REQUIRED)
-include_directories(${VIZ_INCLUDE_DIRS})
-
 find_package(Eigen REQUIRED)
 include_directories(${EIGEN_INCLUDE_DIR})
+
+find_package(VIZ REQUIRED)
+include_directories(${VIZ_INCLUDE_DIRS})
 
 add_executable(ExampleApp "main.cpp")
 target_link_libraries(ExampleApp ${VIZ_LIBRARIES} ${VTK_LIBRARIES})
