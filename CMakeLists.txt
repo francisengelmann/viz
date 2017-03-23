@@ -51,14 +51,14 @@ add_library(VIZ SHARED ${SOURCES})
 target_link_libraries(VIZ ${VTK_LIBRARIES} ${OpenCV_LIBS})
 
 # Set Properties
-include(GenerateExportHeader)
-generate_export_header(VIZ)
-set_property(TARGET VIZ PROPERTY VERSION ${VIZ_VERSION})
+#include(GenerateExportHeader)
+#generate_export_header(VIZ)
+#set_property(TARGET VIZ PROPERTY VERSION ${VIZ_VERSION})
 #set_property(TARGET VIZ PROPERTY SOVERSION 3)
-set_property(TARGET VIZ PROPERTY INTERFACE_VIZ_MAJOR_VERSION 3)
-set_property(TARGET VIZ APPEND PROPERTY
-  COMPATIBLE_INTERFACE_STRING VIZ_MAJOR_VERSION
-)
+#set_property(TARGET VIZ PROPERTY INTERFACE_VIZ_MAJOR_VERSION 3)
+#set_property(TARGET VIZ APPEND PROPERTY
+#  COMPATIBLE_INTERFACE_STRING VIZ_MAJOR_VERSION
+###)
 
 #install(TARGETS VIZ EXPORT VIZTargets
 #        DESTINATION "${CMAKE_SOURCE_DIR}/lib")
@@ -77,36 +77,36 @@ install(FILES ${HEADERS}
 )
 
 # CMAKE VIZConfig.cmake
-include(CMakePackageConfigHelpers)
+#include(CMakePackageConfigHelpers)
 
-write_basic_package_version_file(
-  "${CMAKE_CURRENT_BINARY_DIR}/viz/VIZConfigVersion.cmake"
-  VERSION ${VIZ_VERSION}
-  COMPATIBILITY AnyNewerVersion
-)
+#write_basic_package_version_file(
+#  "${CMAKE_CURRENT_BINARY_DIR}/viz/VIZConfigVersion.cmake"
+#  VERSION ${VIZ_VERSION}
+#  COMPATIBILITY AnyNewerVersion
+#)
 
 #export(EXPORT VIZTargets
 #  FILE "${CMAKE_CURRENT_BINARY_DIR}/viz/VIZTargets.cmake"
 #  NAMESPACE viz::
 #)
 
-configure_file("${CMAKE_SOURCE_DIR}/cmake/VIZConfig.cmake"
-  "${CMAKE_CURRENT_BINARY_DIR}/viz/VIZConfig.cmake"
-  #COPY_ONLY
-)
+#configure_file("${CMAKE_SOURCE_DIR}/cmake/VIZConfig.cmake"
+#  "${CMAKE_CURRENT_BINARY_DIR}/viz/VIZConfig.cmake"
+#  #COPY_ONLY
+#)
 
-set(ConfigPackageLocation "${CMAKE_SOURCE_DIR}/cmake")
+#set(ConfigPackageLocation "${CMAKE_SOURCE_DIR}/cmake")
 
-install(EXPORT VIZTargets
-  FILE VIZTargets.cmake
-  NAMESPACE viz::
-  DESTINATION ${ConfigPackageLocation}
-)
+#install(EXPORT VIZTargets
+#  FILE VIZTargets.cmake
+#  NAMESPACE viz::
+#  DESTINATION ${ConfigPackageLocation}
+#)
 
-install(FILES cmake/VIZConfig.cmake "${CMAKE_CURRENT_BINARY_DIR}/viz/VIZConfigVersion.cmake"
-        DESTINATION ${ConfigPackageLocation}
-        COMPONENT Devel
-)
+#install(FILES cmake/VIZConfig.cmake "${CMAKE_CURRENT_BINARY_DIR}/viz/VIZConfigVersion.cmake"
+#        DESTINATION ${ConfigPackageLocation}
+#        COMPONENT Devel
+#)
 
 # Setting the build type
 if (NOT CMAKE_BUILD_TYPE)
@@ -124,10 +124,10 @@ else (NOT CMAKE_BUILD_TYPE)
 endif (NOT CMAKE_BUILD_TYPE)
 
 # Build the examples
-option(BUILD_EXAMPLES "Build examples" ON)
-if (BUILD_EXAMPLES)
-  message("-- Build the examples.")
-  add_subdirectory(examples)
-else (BUILD_EXAMPLES)
-  message("-- Do not build any example.")
-endif (BUILD_EXAMPLES)
+#option(BUILD_EXAMPLES "Build examples" ON)
+#if (BUILD_EXAMPLES)
+#  message("-- Build the examples.")
+#  add_subdirectory(examples)
+#else (BUILD_EXAMPLES)
+#  message("-- Do not build any example.")
+#endif (BUILD_EXAMPLES)
