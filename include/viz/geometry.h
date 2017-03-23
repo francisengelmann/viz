@@ -1,5 +1,5 @@
-#ifndef VIZ_GEOMETRY
-#define VIZ_GEOMETRY
+#ifndef VIZ_GEOMETRY_H
+#define VIZ_GEOMETRY_H
 
 #include <Eigen/Dense>
 #include <vector>
@@ -22,4 +22,4 @@ struct BoundingBox{
 };
 }
 
-#endif
+#endif VIZ_GEOMETRY_H
