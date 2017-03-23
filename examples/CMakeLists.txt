@@ -20,15 +20,19 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+cmake_minimum_required(VERSION 2.8)
 
-#set(VIZ_DIR "${CMAKE_SOURCE_DIR}/cmake/")
-#message("++++++++++")
-#message(${VIZ_DIR})
-#find_package(VIZ REQUIRED)
-#include_directories(${VIZ_INCLUDE_DIRS})
-#message(">>> ++++++++++")
-#message(${VIZ_LIBRARIES})
+set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake_modules/" ${CMAKE_MODULE_PATH})
+
+find_package(VIZ)
+include_directories(${VIZ_INCLUDE_DIRS})
+
+find_package(VTK 7 REQUIRED)
+include(${VTK_USE_FILE})
+include_directories(${VTK_INCLUDE_DIRS})
+
+find_package(Eigen REQUIRED)
+include_directories(${EIGEN_INCLUDE_DIR})
 
 add_executable(example "example.cpp")
-target_link_libraries(example  VIZ)
-#install(TARGETS example DESTINATION "${CMAKE_SOURCE_DIR}/bin")
+target_link_libraries(example ${VIZ_LIBRARIES} ${VTK_LIBRARIES})
