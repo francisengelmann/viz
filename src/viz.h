@@ -1,5 +1,5 @@
-#ifndef GVL_VISUALIZATION_H
-#define GVL_VISUALIZATION_H
+#ifndef VIZ_VISUALIZATION_H
+#define VIZ_VISUALIZATION_H
 
 // C/C++ includes
 #include <string>
@@ -136,5 +136,5 @@ private:
 
 }
 
-#endif // GVL_VISUALIZATION_H
+#endif // VIZ_VISUALIZATION_H
 
