@@ -1,9 +1,8 @@
 build-release
 build-debug
-*_old*
-*.txt.user
-bin
 build
-examples/build
+*.txt.user
 *.swp
+bin
+include
 lib
