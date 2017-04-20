@@ -304,7 +304,8 @@ void Visualization::addGrid(double depth_min, double depth_max, double width_min
   vtkSmartPointer<vtkUnsignedCharArray> colors = vtkSmartPointer<vtkUnsignedCharArray>::New();
   colors->SetNumberOfComponents(3);
   for (int i=0; i<num_lines; i++) {
-    #if VTK_MAJOR_VERSION>6
+
+    #if VTK_MAJOR_VERSION>=7 && VTK_MINOR_VERSION >=1
     colors->InsertNextTypedTuple(red);
     #else
     colors->InsertNextTupleValue(red);
@@ -384,7 +385,7 @@ void Visualization::addTrajectory(const std::vector<Eigen::Vector3d>& trajectory
   colors->SetNumberOfComponents(3);
   for (unsigned int i=0; i<trajectory.size(); i++) {
     unsigned char c[3] = { (uchar)color(0), (uchar)color(1), (uchar)color(2) };
-    #if VTK_MAJOR_VERSION>6
+    #if VTK_MAJOR_VERSION>=7 && VTK_MINOR_VERSION >=1
     colors->InsertNextTypedTuple(c);
     #else
     colors->InsertNextTupleValue(c);
@@ -445,7 +446,7 @@ void Visualization::addFrustum(const Eigen::Matrix4d &pose)
   colors->SetNumberOfComponents(3);
   for (unsigned int i=0; i<points.size(); i++) {
     unsigned char c[3] = { 0, 128, 0 };
-    #if VTK_MAJOR_VERSION>6
+    #if VTK_MAJOR_VERSION>=7 && VTK_MINOR_VERSION >=1
     colors->InsertNextTypedTuple(c);
     #else
     colors->InsertNextTupleValue(c);
@@ -534,7 +535,7 @@ void Visualization::addPointcloud(const std::vector<Eigen::Vector3d>& ver,
     b = c[2];
     unsigned char co[3] = {r, g, b};
 
-    #if VTK_MAJOR_VERSION>6
+    #if VTK_MAJOR_VERSION>=7 && VTK_MINOR_VERSION >=1
     colors->InsertNextTypedTuple(co);
     #else
     colors->InsertNextTupleValue(co);
@@ -797,7 +798,7 @@ void Visualization::addLocalCoordinateAxes(Eigen::Matrix4d &pose)
   vtkSmartPointer<vtkUnsignedCharArray> colors = vtkSmartPointer<vtkUnsignedCharArray>::New();
   colors->SetNumberOfComponents(3);
 
-  #if VTK_MAJOR_VERSION>6
+  #if VTK_MAJOR_VERSION>=7 && VTK_MINOR_VERSION >=1
   colors->InsertNextTypedTuple(red);
   colors->InsertNextTypedTuple(green);
   colors->InsertNextTypedTuple(blue);
