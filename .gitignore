@@ -3,4 +3,7 @@ build-debug
 *_old*
 *.txt.user
 bin
+build
+examples/build
+*.swp
 lib

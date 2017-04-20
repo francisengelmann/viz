@@ -12,8 +12,8 @@
 #include <vtkSmartPointer.h>
 
 // Eigen includes
-#include <eigen/Core>
-#include <eigen/Dense>
+#include <Eigen/Core>
+#include <Eigen/Dense>
 
 // Own includes
 #include "geometry.h"

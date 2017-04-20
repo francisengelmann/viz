@@ -1,22 +1,27 @@
-# What is VIZ?
-VIZ is a lightweight 3D visualization library based on VTK.
-
 ![alt tag](viz_logo.png)
+## What is VIZ?
+VIZ is a lightweight 3D visualization library based on VTK.
+It only requires VTK and Eigen. If needed, it can also output rendered views into OpenCV.
 
-Inspired by the functionality of the famouse PCL (Pointcloud Library),
-VIZ tries to be a more lightweight visualiation library that comes without a large list of dependencies.
-Its only required dependencies are VTK and Eigen. If desired, it can also output rendered views into OpenCV.
+### Dependencies
+VIZ depends on VTK (minimum version 7.0) and Eigen.
 
-# Motivation
-Visualizations are en essantial part of debugging computer vision code.
-Hence, it should be as easy and as convenient as possible.
-
-# Installation
-Go to root dir of the repository, then type:
+### Installation
+Go to the root directory of the repository, then type:
 * `mkdir build; cd build;`
 * Configure the build using [cmake](http://www.cmake.org/cmake/resources/software.html): `cmake ..`
-* `make; sudo make install`
+* `make; make install`
 
-# Standards
-* Coordinate sytem orientation
-* Color scaling and type: always in 0..255 
+### Examples
+An complete example is provided in ```/examples/```.
+
+### Citation
+If you find VIZ useful, you can cite it:
+
+```
+@misc{viz3d,
+  author = "Francis Engelmann",
+  title = "VIZ",
+  howpublished = "\url{https://github.com/francisengelmann/viz}"
+}
+```
