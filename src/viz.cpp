@@ -254,7 +254,7 @@ void Visualization::lookFromAt(Eigen::Vector3d from, Eigen::Vector3d at) {
   camera->SetFocalPoint(at[0], at[1], at[2]);
 }
 
-void Visualization::void setViewUp(Eigen::Vector3d v) {
+void Visualization::setViewUp(Eigen::Vector3d v) {
   vtkSmartPointer<vtkCamera> camera = renderer->GetActiveCamera();
   camera->SetViewUp(v[0], v[1], v[2]);
 }
