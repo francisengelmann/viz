@@ -71,6 +71,7 @@ public:
   void pointToScene();
   void pointFromTop();
   void lookFromAt(Eigen::Vector3d from, Eigen::Vector3d at);
+  void setLookUp(Eigen::Vector3d v);
   void enableParallelProjection(void);
 
   // -----------------------------------------------------------------------------------------------
