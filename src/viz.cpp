@@ -754,9 +754,9 @@ void Visualization::addClusterCenter(const double x, const double y, const doubl
 
 void Visualization::addLocalCoordinateAxes(Eigen::Matrix4d &pose)
 {
-  Eigen::VectorXd x(4,1); x << 1,0,0,1;
-  Eigen::VectorXd y(4,1); y << 0,1,0,1;
-  Eigen::VectorXd z(4,1); z << 0,0,1,1;
+  Eigen::VectorXd x(4,1); x << 0.3,0,0,1;
+  Eigen::VectorXd y(4,1); y << 0,0.3,0,1;
+  Eigen::VectorXd z(4,1); z << 0,0,0.3,1;
   Eigen::VectorXd o(4,1); o << 0,0,0,1;
 
   Eigen::VectorXd xt,yt,zt,ot;
@@ -803,9 +803,9 @@ void Visualization::addLocalCoordinateAxes(Eigen::Matrix4d &pose)
   colors->SetNumberOfComponents(3);
 
   #if VTK_MAJOR_VERSION>=7 && VTK_MINOR_VERSION >=1
-  colors->InsertNextTypedTuple(red);
-  colors->InsertNextTypedTuple(green);
-  colors->InsertNextTypedTuple(blue);
+  colors->InsertNextTypedTuple(red);   // x
+  colors->InsertNextTypedTuple(green); // y
+  colors->InsertNextTypedTuple(blue);  // z
   #else
   colors->InsertNextTupleValue(red);
   colors->InsertNextTupleValue(green);
@@ -820,6 +820,13 @@ void Visualization::addLocalCoordinateAxes(Eigen::Matrix4d &pose)
   actor->SetMapper(mapper);
   actor->GetProperty()->SetLineWidth(3.0);
   renderer->AddActor(actor);
+
+  // Add 3d labels text
+  this->addText("x", Eigen::Vector3d(xt[0]/xt[3], xt[1]/xt[3], xt[2]/xt[3]), Eigen::Vector3f(255,0,0));
+  this->addText("y", Eigen::Vector3d(yt[0]/yt[3], yt[1]/yt[3], yt[2]/yt[3]), Eigen::Vector3f(0,255,0));
+  this->addText("z", Eigen::Vector3d(zt[0]/zt[3], zt[1]/zt[3], zt[2]/zt[3]), Eigen::Vector3f(0,0,255));
+
+
 }
 
 void  Visualization::addZeroSurfaceFromGrid(const Eigen::MatrixXd& values,
