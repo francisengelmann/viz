@@ -2,6 +2,7 @@
 ## What is VIZ?
 VIZ is a lightweight 3D visualization library based on VTK.
 It only requires VTK and Eigen. If needed, it can also output rendered views into OpenCV.
+THere is also a minimzalistic python version available now, see viz.py.
 
 ### Dependencies
 VIZ depends on VTK (minimum version 7.0) and Eigen.
